@@ -1,0 +1,321 @@
+tools:
+  get_balance:
+    semantic_action: read_financial_balance
+    category: private_data_read
+    risk: medium
+  read_file:
+    semantic_action: read_private_file
+    category: private_data_read
+    risk: low
+  get_iban:
+    semantic_action: read_financial_identifier
+    category: private_data_read
+    risk: medium
+  get_most_recent_transactions:
+    semantic_action: read_transaction_history
+    category: private_data_read
+    risk: medium
+  get_scheduled_transactions:
+    semantic_action: read_scheduled_transactions
+    category: private_data_read
+    risk: medium
+  send_money:
+    semantic_action: financial_transaction
+    category: financial_commit
+    risk: critical
+    side_effect: true
+    constraints:
+      human_gate: approval_required
+  schedule_transaction:
+    semantic_action: schedule_financial_transaction
+    category: financial_commit
+    risk: critical
+    side_effect: true
+    constraints:
+      human_gate: approval_required
+  update_scheduled_transaction:
+    semantic_action: update_financial_transaction
+    category: financial_update
+    risk: critical
+    side_effect: true
+    constraints:
+      human_gate: approval_required
+  get_user_info:
+    semantic_action: read_user_profile
+    category: private_data_read
+    risk: medium
+  update_password:
+    semantic_action: update_account_credential
+    category: account_security_change
+    risk: critical
+    side_effect: true
+  update_user_info:
+    semantic_action: update_user_profile
+    category: identity_update
+    risk: high
+    side_effect: true
+  get_unread_emails:
+    semantic_action: read_email
+    category: read_only
+    risk: low
+  get_sent_emails:
+    semantic_action: read_email
+    category: read_only
+    risk: low
+  get_received_emails:
+    semantic_action: read_email
+    category: read_only
+    risk: low
+  get_draft_emails:
+    semantic_action: read_email
+    category: read_only
+    risk: low
+  search_emails:
+    semantic_action: read_email
+    category: read_only
+    risk: low
+  search_contacts_by_name:
+    semantic_action: read_contact
+    category: read_only
+    risk: low
+  search_contacts_by_email:
+    semantic_action: read_contact
+    category: read_only
+    risk: low
+  send_email:
+    semantic_action: send_external_message
+    category: external_message_send
+    risk: high
+    side_effect: true
+  delete_email:
+    semantic_action: destructive_update
+    category: destructive_update
+    risk: high
+    side_effect: true
+  get_current_day:
+    semantic_action: read_calendar
+    category: read_only
+    risk: low
+  search_calendar_events:
+    semantic_action: read_calendar
+    category: read_only
+    risk: low
+  get_day_calendar_events:
+    semantic_action: read_calendar
+    category: read_only
+    risk: low
+  create_calendar_event:
+    semantic_action: calendar_commit
+    category: calendar_commit
+    risk: high
+    side_effect: true
+  cancel_calendar_event:
+    semantic_action: calendar_destructive_update
+    category: calendar_destructive_update
+    risk: high
+    side_effect: true
+  reschedule_calendar_event:
+    semantic_action: calendar_commit
+    category: calendar_commit
+    risk: high
+    side_effect: true
+  add_calendar_event_participants:
+    semantic_action: calendar_commit
+    category: calendar_commit
+    risk: high
+    side_effect: true
+  search_files_by_filename:
+    semantic_action: read_cloud_file
+    category: read_only
+    risk: low
+  get_file_by_id:
+    semantic_action: read_cloud_file
+    category: read_only
+    risk: low
+  list_files:
+    semantic_action: read_cloud_file
+    category: read_only
+    risk: low
+  search_files:
+    semantic_action: read_cloud_file
+    category: read_only
+    risk: low
+  create_file:
+    semantic_action: write_cloud_file
+    category: write_cloud_file
+    risk: medium
+    side_effect: true
+  append_to_file:
+    semantic_action: write_cloud_file
+    category: write_cloud_file
+    risk: medium
+    side_effect: true
+  share_file:
+    semantic_action: external_file_share
+    category: external_file_share
+    risk: high
+    side_effect: true
+  delete_file:
+    semantic_action: destructive_file_operation
+    category: destructive_file_operation
+    risk: high
+    side_effect: true
+  run_bash_command:
+    semantic_action: shell_command
+    category: terminal_or_code
+    risk: critical
+    side_effect: true
+  get_channels:
+    semantic_action: read_slack_channels
+    category: read_only
+    risk: low
+  read_channel_messages:
+    semantic_action: read_slack_channel
+    category: private_data_read
+    risk: low
+  read_inbox:
+    semantic_action: read_slack_inbox
+    category: private_data_read
+    risk: low
+  get_users_in_channel:
+    semantic_action: read_membership
+    category: read_only
+    risk: low
+  send_direct_message:
+    semantic_action: send_external_message
+    category: external_message_send
+    risk: high
+    side_effect: true
+  send_channel_message:
+    semantic_action: send_external_message
+    category: external_message_send
+    risk: high
+    side_effect: true
+  send_slack_message:
+    semantic_action: send_external_message
+    category: external_message_send
+    risk: high
+    side_effect: true
+  add_user_to_channel:
+    semantic_action: modify_membership
+    category: privilege_or_membership_change
+    risk: high
+    side_effect: true
+  invite_user_to_slack:
+    semantic_action: invite_external_user
+    category: membership_expansion
+    risk: high
+    side_effect: true
+  remove_user_from_slack:
+    semantic_action: remove_user
+    category: destructive_membership_update
+    risk: high
+    side_effect: true
+  get_webpage:
+    semantic_action: network_fetch_untrusted_web
+    group: untrusted_read
+    category: network_observation
+    risk: medium
+    read_untrusted: true
+    external_sink: true
+    sensitive_args: [url]
+  post_webpage:
+    semantic_action: post_external_webpage
+    category: external_public_write
+    risk: high
+    side_effect: true
+  get_user_information:
+    semantic_action: read_user_booking_profile
+    category: private_data_read
+    risk: medium
+  get_all_hotels_in_city:
+    semantic_action: read_travel_option
+    category: read_only
+    risk: low
+  get_hotels_prices:
+    semantic_action: read_travel_option
+    category: read_only
+    risk: low
+  get_hotels_address:
+    semantic_action: read_travel_option
+    category: read_only
+    risk: low
+  get_rating_reviews_for_hotels:
+    semantic_action: read_travel_option
+    category: untrusted_reviews
+    risk: low
+  get_all_restaurants_in_city:
+    semantic_action: read_travel_option
+    category: read_only
+    risk: low
+  get_restaurants_address:
+    semantic_action: read_travel_option
+    category: read_only
+    risk: low
+  get_rating_reviews_for_restaurants:
+    semantic_action: read_travel_option
+    category: untrusted_reviews
+    risk: low
+  get_cuisine_type_for_restaurants:
+    semantic_action: read_travel_option
+    category: read_only
+    risk: low
+  get_dietary_restrictions_for_all_restaurants:
+    semantic_action: read_travel_option
+    category: read_only
+    risk: low
+  get_contact_information_for_restaurants:
+    semantic_action: read_travel_option
+    category: read_only
+    risk: low
+  get_price_for_restaurants:
+    semantic_action: read_travel_option
+    category: read_only
+    risk: low
+  check_restaurant_opening_hours:
+    semantic_action: read_travel_option
+    category: read_only
+    risk: low
+  get_all_car_rental_companies_in_city:
+    semantic_action: read_travel_option
+    category: read_only
+    risk: low
+  get_car_types_available:
+    semantic_action: read_travel_option
+    category: read_only
+    risk: low
+  get_rating_reviews_for_car_rental:
+    semantic_action: read_travel_option
+    category: untrusted_reviews
+    risk: low
+  get_car_fuel_options:
+    semantic_action: read_travel_option
+    category: read_only
+    risk: low
+  get_car_rental_address:
+    semantic_action: read_travel_option
+    category: read_only
+    risk: low
+  get_car_price_per_day:
+    semantic_action: read_travel_option
+    category: read_only
+    risk: low
+  reserve_hotel:
+    semantic_action: booking_commit
+    category: booking_commit
+    risk: high
+    side_effect: true
+  reserve_car_rental:
+    semantic_action: booking_commit
+    category: booking_commit
+    risk: high
+    side_effect: true
+  reserve_restaurant:
+    semantic_action: booking_commit
+    category: booking_commit
+    risk: high
+    side_effect: true
+  get_flight_information:
+    semantic_action: read_flight_info
+    category: read_only
+    risk: low

@@ -1,0 +1,11 @@
+{
+  "schema_version": "obligate-mechanism-profile-v1",
+  "name": "full",
+  "research_only": false,
+  "deployable": true,
+  "production_loader": true,
+  "accept_kappa_required": true,
+  "conflict_semantics": "bipolar-conflict",
+  "gap_visible_to_eoc": true,
+  "lifted_join": true
+}

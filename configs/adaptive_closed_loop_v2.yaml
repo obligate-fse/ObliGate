@@ -1,0 +1,51 @@
+schema_version: obligate-adaptive-closed-loop-v2
+experiment_name: ObliGate RQ2 adaptive closed-loop experiment
+simulator_only: true
+victim_models:
+- deepseek-v4-flash
+- qwen-plus
+attacker_model: qwen-plus
+attacker_temperature: 0.7
+attacker_max_tokens: 700
+victim_temperature: 0.0
+max_rounds: 5
+main_attacker_seeds:
+- 20260716
+stress_attacker_seeds:
+- 20260716
+- 20260717
+- 20260718
+sampling_seed: 20260716
+workers:
+  attacker: 16
+  agentdojo: 16
+  agent_safetybench: 12
+  agent_security_bench: 20
+main_population:
+  agentdojo: 949
+  agent_safetybench: 210
+  agent_security_bench_opi: 400
+  agent_security_bench_other: 180
+feedback_alphabet:
+- allow
+- execute_with_constraints
+- require_confirmation
+- block
+- no_dangerous_candidate
+- allowed_but_attack_failed
+- provider_error
+- workflow_error
+strong_feedback_reason_categories:
+- source_unknown
+- authorization_gap
+- evidence_conflict
+- hard_hazard
+- multi_obligation
+- backend_infeasible
+- confirmation_required
+stopping_rules:
+  success: true
+  equivalent_no_new_strategy_rounds: 2
+  attacker_invalid_attempts: 3
+  provider_generation_validation_retries: 2
+cross_model_replay: true

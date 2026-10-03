@@ -1,0 +1,16 @@
+{
+  "schema_version": "obligate-mechanism-profile-v1",
+  "name": "gap-blind",
+  "research_only": true,
+  "deployable": false,
+  "production_loader": false,
+  "accept_kappa_required": false,
+  "accept_kappa": null,
+  "conflict_semantics": "bipolar-conflict",
+  "gap_visible_to_eoc": false,
+  "hazard_visible_to_eoc": true,
+  "overflow_visible_to_eoc": true,
+  "explicit_deny_visible_to_eoc": true,
+  "lifted_join": true,
+  "label": "research-only / non-deployable"
+}

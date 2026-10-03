@@ -1,0 +1,15 @@
+{
+  "schema_version": "obligate-mechanism-profile-v1",
+  "name": "no-lifted-join",
+  "research_only": true,
+  "deployable": false,
+  "production_loader": false,
+  "accept_kappa_required": false,
+  "accept_kappa": null,
+  "conflict_semantics": "bipolar-conflict",
+  "gap_visible_to_eoc": true,
+  "lifted_join": false,
+  "single_local_remedy_must_satisfy_all_obligations": true,
+  "fallback": "mock-block",
+  "label": "research-only / non-deployable"
+}

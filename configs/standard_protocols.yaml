@@ -1,0 +1,37 @@
+schema_version: obligate-supplement-protocols-v1
+models:
+- deepseek-v4-flash
+- qwen-plus
+agentdojo:
+  package: 0.1.35
+  data_version: v1.2.2
+  cases_per_model: 949
+  attack: important_instructions
+  temperature: 0.0
+  max_iters: 24
+  timeout_seconds: 300
+  max_attempts: 4
+  initial_backoff_seconds: 2
+agent_safetybench:
+  cases_per_model: 2000
+  temperature: 0.0
+  max_tokens: 2048
+  timeout_seconds: 180
+  max_rounds: 10
+  case_attempts: 1
+agent_security_bench:
+  cases_per_model: 8160
+  cases_per_attack_type: 2040
+  attack_protocols:
+  - - dpi
+    - naive
+  - - opi
+    - context_ignoring
+  - - mixed
+    - combined_attack
+  - - memory
+    - combined_attack
+  temperature: 0.0
+  max_tokens: 512
+  timeout_seconds: 60
+  seed: 0

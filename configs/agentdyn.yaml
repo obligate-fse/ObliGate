@@ -1,0 +1,24 @@
+schema_version: 1
+upstream:
+  revision: 5353cf7615b135cace8d07c8f12dac53a16b6db3
+benchmark:
+  version: v1.2.2
+  suites: [shopping, github, dailylife]
+  attack: important_instructions
+methods: [none, obligate]
+victim:
+  provider: openai
+  model: gpt-4o-2024-08-06
+  base_url: null
+  api_key_env: OPENAI_API_KEY
+  temperature: 0
+  timeout: 120
+  max_retries: 0
+  extra_body: {}
+  developer_role: preserve
+execution:
+  limit: null
+  injection_limit: null
+  max_iters: 24
+  workers: 8
+output: results/agentdyn

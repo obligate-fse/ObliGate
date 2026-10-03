@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "seed_file": "configs/smtp_mail_seeds.json",
+  "methods": [
+    "NoGate",
+    "Full"
+  ],
+  "table6": {
+    "repetitions_per_condition": 50,
+    "repetitions_per_seed": 10,
+    "conditions": [
+      "normal",
+      "equivalent_MIME",
+      "valid_confirmation",
+      "recipient_mutation",
+      "envelope_mutation",
+      "payload_mutation",
+      "wrong_actor",
+      "expired_confirmation",
+      "audit_failure",
+      "redaction_success",
+      "missing_redactor",
+      "incomplete_redaction",
+      "redactor_exception",
+      "lost_DATA_reply"
+    ]
+  },
+  "table7": {
+    "paths": [
+      "P0",
+      "P1_confirmed"
+    ],
+    "warm_samples_per_path": 500,
+    "warm_repetitions_per_seed": 100,
+    "warmup_per_seed_path": 1,
+    "order": "paired_alternating"
+  },
+  "smoke": {
+    "repetitions_per_seed": 1,
+    "warm_repetitions_per_seed": 1,
+    "warmup_per_seed_path": 1
+  }
+}

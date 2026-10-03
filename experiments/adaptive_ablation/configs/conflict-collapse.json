@@ -1,0 +1,13 @@
+{
+  "schema_version": "obligate-mechanism-profile-v1",
+  "name": "conflict-collapse",
+  "research_only": true,
+  "deployable": false,
+  "production_loader": false,
+  "accept_kappa_required": false,
+  "accept_kappa": null,
+  "conflict_semantics": "positive-supported",
+  "gap_visible_to_eoc": true,
+  "lifted_join": true,
+  "label": "research-only / non-deployable"
+}

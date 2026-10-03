@@ -1,0 +1,33 @@
+schema_version: obligate-ablation-v2-variants-v2
+e2e:
+  - full
+  - scalar-average
+  - unbound-evidence
+  - gap-blind
+  - single-remedy
+  - dag-single
+  - policy-prompt-only
+  - block-all-guarded
+policy_controls:
+  - dag-single
+  - policy-prompt-only
+policy_control_contract:
+  research_only: true
+  simulator_only: true
+  research_counterfactual_mode: false
+  issues_formal_action_certificate: false
+research_variant_contract:
+  research_only: true
+  deployable: false
+  research_counterfactual_mode: true
+  issues_formal_action_certificate: false
+protocol:
+  benchmark: AgentDojo
+  package: 0.1.35
+  data_version: v1.2.2
+  cases_per_cell: 949
+  models: [deepseek-v4-flash, qwen-plus]
+  temperature: 0.0
+  seed: 20260716
+  bootstrap_iterations: 10000
+  bootstrap_seed: 20260716
